@@ -25,10 +25,10 @@ def moving_shift(s, shift):
     n = len(s) // 5 + 1 if len(s) % 5 else len(s) // 5
     for j in range(5):
         for c in s[j * n : n * (j + 1)]:
-                if c.islower():
+                if c in lower:
                     i = (lower.index(c) + shift) % len(lower)
                     out[j] += lower[i]
-                elif c.isupper():
+                elif c in upper:
                     i = (upper.index(c) + shift) % len(upper)
                     out[j] += upper[i]
                 else:
@@ -40,10 +40,10 @@ def demoving_shift(s, shift):
     s = ''.join(s)
     out = ''
     for c in s:
-        if c.islower():
+        if c in lower:
             i = (lower.index(c) - shift) % len(lower)
             out += lower[i]
-        elif c.isupper():
+        elif c in upper:
             i = (upper.index(c) - shift) % len(upper)
             out += upper[i]
         else:
